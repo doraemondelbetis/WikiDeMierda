@@ -162,6 +162,43 @@ h2 {
         margin: 0 0 20px 0;
     }
 }
+    /* === MOBILE MENU BUTTON === */
+.mobile-menu-btn {
+    display: none;
+    padding: 6px 10px;
+    font-size: 14px;
+    background: #eaecf0;
+    border: 1px solid #a2a9b1;
+    cursor: pointer;
+}
+
+/* === MOBILE MENU === */
+.mobile-menu {
+    display: none;
+    background: white;
+    border-bottom: 1px solid #a2a9b1;
+    font-family: sans-serif;
+}
+
+.mobile-menu a {
+    display: block;
+    padding: 10px 16px;
+    border-top: 1px solid #eaecf0;
+    color: #0645ad;
+    text-decoration: none;
+}
+
+.mobile-menu a:hover {
+    background: #f8f9fa;
+}
+
+/* === MOBILE ONLY === */
+@media (max-width: 1000px) {
+    .mobile-menu-btn {
+        display: block;
+    }
+}
+
 </style>
 </head>
 
@@ -169,6 +206,7 @@ h2 {
 
 <header class="top-bar">
     <div class="logo">Wiki de Mierda<br><small>La Virgopedia Libre</small></div>
+   <button class="mobile-menu-btn" onclick="toggleMenu()">☰ Artículos</button>
     <input 
   type="search"
   id="searchBox"
@@ -178,6 +216,12 @@ h2 {
 <button onclick="doSearch()">Buscar</button>
 </header>
 
+<nav class="mobile-menu" id="mobileMenu">
+    <a onclick="showArticle('dosis'); closeMenu()">Dosis de Mierda</a>
+    <a onclick="showArticle('malena'); closeMenu()">Malena</a>
+    <a onclick="showArticle('victoria'); closeMenu()">Victoria</a>
+</nav>
+    
 <div class="layout">
 
 <aside class="sidebar">
@@ -348,37 +392,22 @@ h2 {
 function showArticle(id) {
     document.querySelectorAll('.article').forEach(a => a.classList.remove('active'));
     document.getElementById(id).classList.add('active');
-function handleEnter(e) {
-    if (e.key === "Enter") {
-        doSearch();
-    }
+<script>
+
+    <script>
+function toggleMenu() {
+    const menu = document.getElementById('mobileMenu');
+    menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
 }
 
-function doSearch() {
-    const value = document.getElementById("searchBox").value
-        .toLowerCase()
-        .trim();
-
-    if (value.includes("malena")) {
-        showArticle("malena");
-    } 
-    else if (value.includes("victoria")) {
-        showArticle("victoria");
-    } 
-    else if (value.includes("dosis") || value.includes("mierda")) {
-        showArticle("dosis");
-    } 
-    else {
-        alert("No se encontró ningún artículo.");
-    }
-
-    document.getElementById("searchBox").value = "";
-}
+function closeMenu() {
+    document.getElementById('mobileMenu').style.display = 'none';
 }
 </script>
 
 </body>
 </html>
+
 
 
 
