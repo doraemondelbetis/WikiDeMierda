@@ -169,8 +169,13 @@ h2 {
 
 <header class="top-bar">
     <div class="logo">Wiki de Mierda<br><small>La Virgopedia Libre</small></div>
-    <input type="search" placeholder="Buscar en Wikipedia">
-    <button>Buscar</button>
+    <input 
+  type="search"
+  id="searchBox"
+  placeholder="Buscar en Wikipedia"
+  onkeydown="handleEnter(event)"
+>
+<button onclick="doSearch()">Buscar</button>
 </header>
 
 <div class="layout">
@@ -343,10 +348,37 @@ h2 {
 function showArticle(id) {
     document.querySelectorAll('.article').forEach(a => a.classList.remove('active'));
     document.getElementById(id).classList.add('active');
+function handleEnter(e) {
+    if (e.key === "Enter") {
+        doSearch();
+    }
+}
+
+function doSearch() {
+    const value = document.getElementById("searchBox").value
+        .toLowerCase()
+        .trim();
+
+    if (value.includes("malena")) {
+        showArticle("malena");
+    } 
+    else if (value.includes("victoria")) {
+        showArticle("victoria");
+    } 
+    else if (value.includes("dosis") || value.includes("mierda")) {
+        showArticle("dosis");
+    } 
+    else {
+        alert("No se encontró ningún artículo.");
+    }
+
+    document.getElementById("searchBox").value = "";
+}
 }
 </script>
 
 </body>
 </html>
+
 
 
