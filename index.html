@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wiki privada</title>
+
+<style>
+* { box-sizing: border-box; }
+
+/* === BODY === */
+body {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    background: #f6f6f6;
+    color: #202122;
+}
+
+/* === TOP BAR === */
+.top-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 16px;
+    background: white;
+    border-bottom: 1px solid #a2a9b1;
+    font-family: sans-serif;
+    font-size: 14px;
+}
+
+.logo { font-weight: bold; }
+.logo small { font-size: 12px; font-weight: normal; }
+
+.top-bar input { flex: 1; padding: 4px; }
+.top-bar button { padding: 4px 10px; }
+
+/* === LAYOUT === */
+.layout {
+    display: grid;
+    grid-template-columns: 200px 1fr 220px;
+    max-width: 1400px;
+    margin: auto;
+}
+
+/* === SIDEBAR === */
+.sidebar {
+    padding: 20px 10px;
+    font-family: sans-serif;
+    font-size: 14px;
+}
+
+.sidebar h3 { font-size: 14px; margin-bottom: 10px; }
+
+.sidebar a {
+    display: block;
+    margin: 6px 0;
+    color: #0645ad;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.sidebar a:hover { text-decoration: underline; }
+
+/* === MAIN === */
+.container {
+    background: white;
+    padding: 20px 24px;
+    box-shadow: 0 0 0 1px #a2a9b1;
+}
+
+/* === TOOLS === */
+.tools {
+    padding: 20px 10px;
+    font-family: sans-serif;
+    font-size: 13px;
+}
+
+.tools h3 { font-size: 14px; margin-bottom: 10px; }
+
+.tools a {
+    display: block;
+    margin: 6px 0;
+    color: #0645ad;
+    text-decoration: none;
+}
+
+.tools a:hover { text-decoration: underline; }
+
+/* === ARTÍCULOS === */
+.article { display: none; }
+.article.active { display: block; }
+
+/* === TITULOS === */
+h1 {
+    font-size: 28px;
+    font-weight: normal;
+    border-bottom: 1px solid #a2a9b1;
+}
+
+h2 {
+    font-size: 20px;
+    font-weight: normal;
+    border-bottom: 1px solid #a2a9b1;
+    margin-top: 30px;
+}
+
+/* === INFOBOX WIKIPEDIA === */
+.infobox {
+    float: right;
+    width: 270px;
+    background: #f8f9fa;
+    border: 1px solid #a2a9b1;
+    padding: 4px;
+    margin: 0 0 20px 20px;
+    font-family: sans-serif;
+    font-size: 13px;
+}
+
+.infobox-title {
+    background: #cccc99;
+    text-align: center;
+    font-weight: bold;
+    padding: 6px;
+    margin-bottom: 6px;
+}
+
+.infobox img {
+    width: 100%;
+    margin-bottom: 6px;
+}
+
+/* === TABLA SIN BORDES === */
+.infobox-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.infobox-table th {
+    text-align: left;
+    vertical-align: top;
+    font-weight: bold;
+    padding: 4px 6px;
+    width: 45%;
+}
+
+.infobox-table td {
+    padding: 4px 6px;
+}
+
+.infobox-table th,
+.infobox-table td {
+    border: none;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 1000px) {
+    .layout { grid-template-columns: 1fr; }
+    .sidebar, .tools { display: none; }
+    .infobox {
+        float: none;
+        width: 100%;
+        margin: 0 0 20px 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header class="top-bar">
+    <div class="logo">Wikipedia<br><small>La enciclopedia libre</small></div>
+    <input type="search" placeholder="Buscar en Wikipedia">
+    <button>Buscar</button>
+</header>
+
+<div class="layout">
+
+<aside class="sidebar">
+    <h3>Menú principal</h3>
+    <a onclick="showArticle('dosis')">Dosis de Mierda</a>
+    <a onclick="showArticle('malena')">Malena</a>
+    <a onclick="showArticle('victoria')">Victoria</a>
+</aside>
+
+<main class="container">
+
+<!-- ================= DOSIS ================= -->
+<div id="dosis" class="article active">
+    <div class="infobox">
+        <div class="infobox-title">Dosis de Mierda</div>
+        <img src="Dosis de MRD.jpeg">
+
+        <table class="infobox-table">
+            <tr><th>Creadores</th><td>Malena y Victoria</td></tr>
+            <tr><th>Fecha de creación</th><td>27 de junio de 2025</td></tr>
+            <tr><th>Plataforma</th><td>Kick</td></tr>
+            <tr><th>Tipo</th><td>Canal de transmisiones en vivo</td></tr>
+            <tr><th>País</th><td>Argentina</td></tr>
+            <tr><th>Ciudad</th><td>Rosario</td></tr>
+            <tr><th>Seguidores</th><td>Aproximadamente 1,000</td></tr>
+        </table>
+    </div>
+
+    <h1>Dosis de Mierda</h1>
+
+<p><strong>Dosis de Mierda</strong> es un canal de la plataforma Kick, iniciado el 27 de junio de 2025 en Rosario, Argentina. El proyecto fue creado con la idea original de leer historias publicadas en Wattpad, con énfasis en contenidos relacionados con streamers argentinos.</p>
+
+<h2>Inicios</h2>
+
+<p>El canal comenzó como un espacio dedicado a la lectura y comentario de historias de Wattpad. Su primer acercamiento relevante a la fama ocurrió cuando streamers reconocidos como Moski, Bauletti y Mernuel reaccionaron a uno de sus clips, en el que participaban en el juego «besar, casar y matar».</p>
+
+<p>Tras este episodio, las creadoras decidieron abandonar la idea original del canal debido al riesgo de que otros streamers reaccionaran a su contenido y a las posibles consecuencias que esto podría traer.</p>
+
+<h2>Contenido y polémica</h2>
+
+<p>Con el tiempo, el canal se volvió conocido por su contenido polémico y subido de tono, lo que generó fuertes críticas, principalmente por parte del colectivo feminista.</p>
+
+<p>Algunos clips difundidos por medios argentinos incluyen declaraciones controvertidas, como cuando Malena afirmó que una mujer que no recibió un golpe en la cara «no sale derecha», lo que incrementó la exposición y la controversia alrededor del canal.</p>
+
+<h2>Actualidad</h2>
+
+<p>Actualmente, Dosis de Mierda ha alcanzado aproximadamente 1,000 seguidores en Kick. Este crecimiento se atribuye a su constancia semanal, la innovación en su formato y la notoriedad generada por sus conversaciones polémicas.</p>
+
+<p>Para algunos seguidores, el canal representa un espacio con «valores correctos» y una comunidad afín, mientras que para otros es un contenido criticable, lo que ha contribuido tanto a su mala fama como a su visibilidad.</p>
+
+<h2>Redes y comunidad</h2>
+
+<p>El canal cuenta con presencia en diversas plataformas:</p>
+
+<ul>
+    <li>Instagram</li>
+    <li>YouTube</li>
+    <li>Kick</li>
+    <li>TikTok</li>
+    <li>Servidor de Discord, utilizado para anunciar streams, publicaciones y como espacio de convivencia comunitaria</li>
+</ul>
+
+<h2>Chat</h2>
+
+<p>El chat es presentado como uno de los elementos más importantes del canal, descrito de manera humorística y exagerada. También se mencionan usuarios recurrentes como Sandía y Ale.</p>
+
+</div>
+
+<!-- ================= MALENA ================= -->
+<div id="malena" class="article">
+    <div class="infobox">
+        <div class="infobox-title">Malena</div>
+        <img src="malena.png">
+
+        <table class="infobox-table">
+            <tr><th>Nombre completo</th><td>Malena</td></tr>
+            <tr><th>Nacimiento</th><td>Rosario, Argentina</td></tr>
+            <tr><th>Ocupación</th><td>Streamer</td></tr>
+            <tr><th>Formación</th><td>Producción audiovisual</td></tr>
+            <tr><th>Proyecto</th><td>Dosis de Mierda</td></tr>
+        </table>
+    </div>
+
+   <h1>Malena</h1>
+
+<p><strong>Malena</strong> es una de las creadoras del canal <em>Dosis de Mierda</em> y una figura surgida del contexto social en el que creció. Nació en Rosario, Argentina, en un entorno socioeconómico humilde, donde la meritocracia era percibida más como un mito que como una posibilidad real. La inseguridad y la precariedad formaban parte de la vida cotidiana, integradas al paisaje urbano y social.</p>
+
+<h2>Contexto y primeros años</h2>
+
+<p>Desde muy pequeña comprendió que el esfuerzo no siempre garantiza resultados, aunque la falta de esfuerzo suele garantizar consecuencias negativas. Creció rodeada de trabajos mal remunerados, horarios extensos y una sensación constante de inestabilidad, lo que contribuyó a forjar una visión crítica sobre el funcionamiento del sistema laboral y social.</p>
+
+<h2>Inicios en el streaming</h2>
+
+<p>Cansada de la precariedad laboral, decidió incursionar en el streaming a través de la plataforma Twitch. Esta decisión combinó expectativas de progreso con una apuesta arriesgada al crecimiento digital. Contra los pronósticos iniciales, logró cierto reconocimiento local, convirtiéndose en una figura identificable dentro de su ciudad.</p>
+
+<h2>Formación y proyectos audiovisuales</h2>
+
+<p>Con el objetivo de legitimar su actividad y ampliar sus oportunidades profesionales, estudió realización y producción audiovisual. Durante este período surgieron rumores persistentes sobre un posible interés en la industria del cine pornográfico, los cuales no se materializaron en proyectos concretos ni tuvieron consecuencias documentadas.</p>
+
+<p>Tras finalizar sus estudios, intentó insertarse en la industria audiovisual sin éxito, enfrentándose a reiterados rechazos, procesos inconclusos y promesas laborales que no se concretaron. Esta experiencia reforzó su percepción crítica sobre las dinámicas del mercado laboral.</p>
+
+<h2>Dosis de Mierda</h2>
+
+<p>Finalmente, junto a Victoria, creó el canal <em>Dosis de Mierda</em>, concebido como un espacio de expresión directa y sin filtros. El proyecto se caracteriza por un enfoque irónico y frontal, surgido de la frustración social y de la necesidad de verbalizar ideas habitualmente relegadas al ámbito privado.</p>
+
+<p>Para Malena, el canal no representa una evasión de la realidad, sino una forma de afrontarla desde la exposición pública, prescindiendo de la corrección política y priorizando la espontaneidad como rasgo central de su identidad digital.</p>
+
+</div>
+
+<!-- ================= VICTORIA ================= -->
+<div id="victoria" class="article">
+    <div class="infobox">
+        <div class="infobox-title">Victoria</div>
+        <img src="victoria.png">
+
+        <table class="infobox-table">
+            <tr><th>Nombre completo</th><td>Victoria</td></tr>
+            <tr><th>Nacimiento</th><td>Rosario, Argentina</td></tr>
+            <tr><th>Ocupación</th><td>Streamer</td></tr>
+            <tr><th>Formación</th><td>Producción audiovisual</td></tr>
+            <tr><th>Proyecto</th><td>Dosis de Mierda</td></tr>
+        </table>
+    </div>
+
+    <h1>Victoria</h1>
+
+<p><strong>Victoria</strong> es una de las creadoras del canal <em>Dosis de Mierda</em> y una figura surgida del mismo contexto social que su compañera Malena. Nació en Rosario, Argentina, en un entorno socioeconómico humilde, donde la adaptación temprana y la aceptación de oportunidades limitadas formaban parte del proceso de crecimiento.</p>
+
+<h2>Contexto y primeros años</h2>
+
+<p>Criada en un ambiente marcado por la precariedad económica, comprendió desde joven que la inactividad no era una opción viable. A diferencia de Malena, que apostó por un objetivo específico, Victoria optó por una estrategia pragmática orientada a la supervivencia: trabajar en cualquier empleo disponible, sin una vocación definida más allá de la estabilidad inmediata.</p>
+
+<h2>Trayectoria laboral</h2>
+
+<p>A lo largo de los años desempeñó múltiples trabajos, algunos breves y otros lo suficientemente prolongados como para dejar una huella significativa. Entre ellos se incluyen empleos en McDonald’s, donde ocupó el puesto de limpieza de sanitarios; para el Gobierno de Argentina como jardinera; y en el Club Atlético Talleres como asistente de limpieza. Estas experiencias consolidaron una trayectoria laboral marcada por tareas de mantenimiento y servicios generales.</p>
+
+<h2>Intentos en el streaming</h2>
+
+<p>De manera paralela, intentó desarrollarse como streamer en la plataforma Twitch, siguiendo un recorrido similar al de Malena. Sin embargo, esta etapa no logró generar un impacto significativo ni un crecimiento sostenido de audiencia, lo que contribuyó a una visión escéptica sobre la relación entre esfuerzo digital y resultados visibles.</p>
+
+<h2>Formación audiovisual</h2>
+
+<p>Posteriormente decidió estudiar realización y producción audiovisual junto a Malena, con el objetivo de profesionalizar su experiencia acumulada. Logró graduarse, demostrando constancia y disciplina, aunque no consiguió insertarse laboralmente en el sector audiovisual ni cinematográfico tras finalizar sus estudios.</p>
+
+<h2>Dosis de Mierda</h2>
+
+<p>Tras reiterados intentos fallidos en distintas industrias, Victoria optó por crear un proyecto propio. Junto a Malena fundó <em>Dosis de Mierda</em>, un canal concebido como síntesis de años de trabajos precarios, frustraciones laborales y observación constante de las dinámicas sociales.</p>
+
+<p>Dentro del proyecto, Victoria desempeña un rol más sobrio y funcional, actuando como contrapunto al estilo más expresivo de su compañera. Su participación se caracteriza por una actitud observadora y pragmática, sin búsqueda de protagonismo ni redención personal.</p>
+
+<p>Para Victoria, <em>Dosis de Mierda</em> no representa un escape ni una catarsis, sino una consecuencia lógica de su trayectoria vital, donde la experiencia acumulada encuentra finalmente un espacio de expresión directa y sin adornos.</p>
+
+</div>
+
+</main>
+
+<aside class="tools">
+    <h3>Herramientas</h3>
+    <a href="#">Lo que enlaza aquí</a>
+    <a href="#">Cambios relacionados</a>
+    <a href="#">Subir archivo</a>
+    <a href="#">Citar esta página</a>
+</aside>
+
+</div>
+
+<script>
+function showArticle(id) {
+    document.querySelectorAll('.article').forEach(a => a.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+}
+</script>
+
+</body>
+</html>
