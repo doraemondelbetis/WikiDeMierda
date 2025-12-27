@@ -389,13 +389,20 @@ h2 {
 </div>
 
 <script>
+/* === CAMBIAR ARTÍCULOS === */
 function showArticle(id) {
     document.querySelectorAll('.article').forEach(a => {
         a.classList.remove('active');
     });
-    document.getElementById(id).classList.add('active');
+
+    const article = document.getElementById(id);
+    if (article) {
+        article.classList.add('active');
+        window.scrollTo(0, 0); // sube arriba al cambiar
+    }
 }
 
+/* === MENÚ MOBILE === */
 function toggleMenu() {
     const menu = document.getElementById('mobileMenu');
     menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
@@ -403,6 +410,30 @@ function toggleMenu() {
 
 function closeMenu() {
     document.getElementById('mobileMenu').style.display = 'none';
+}
+
+/* === BUSCADOR (EASTER EGG FUNCIONAL) === */
+function doSearch() {
+    const value = document.getElementById('searchBox').value.toLowerCase().trim();
+
+    if (value.includes('dosis')) {
+        showArticle('dosis');
+    } else if (value.includes('malena')) {
+        showArticle('malena');
+    } else if (value.includes('victoria')) {
+        showArticle('victoria');
+    } else {
+        alert('No se encontró ningún artículo');
+    }
+
+    closeMenu();
+}
+
+/* === ENTER EN BUSCADOR === */
+function handleEnter(e) {
+    if (e.key === 'Enter') {
+        doSearch();
+    }
 }
 </script>
 </body>
